@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# cflib-Cache
+cache/
+
+# Flugaufzeichnungen und Berichte
+*.csv
+race_indoor_*.txt
+flug_*.txt
+flugpaket.json
+controller.json
+strecken/
+
+# Sicherungen
+*_SICHERUNG_*
+*.vor_*
+*.bak

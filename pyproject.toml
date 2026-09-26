@@ -1,0 +1,31 @@
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = ["_alt", "_SICHERUNGEN"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "SIM"]
+ignore = [
+    "E501",    # Zeilenlänge - black regelt das
+    "UP031",   # '%.2f' % x ist hier gewollt
+    "SIM105",  # contextlib.suppress zu invasiv für Flugskripte
+    "SIM108",  # if/else statt Ternary - lesbarer
+    "SIM102",  # verschachteltes if - lesbarer
+    "SIM115",  # CSV-Datei bleibt bewusst über den Flug offen
+    "SIM117",  # verschachtelte with-Blöcke (Bitcraze-Original)
+    "N818",    # deutsche Exception-Namen ohne Error-Suffix
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+skip-string-normalization = true   # 'einfache' Anführungszeichen bleiben
+extend-exclude = "_alt|_SICHERUNGEN"
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_return_any = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
