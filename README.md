@@ -26,6 +26,9 @@ Schließ vor dem Start den cfclient, sonst ist der Funkstick belegt.
 |---|---|
 | `race_indoor.py` | Das Hauptskript für schnelles Fliegen. Taste **Y** macht eine Wende um 180°. Vor Wänden bremst sie selbst (Bremslicht über die LEDs). Jeder Flug wird als `.txt` und `.csv` mitgeschrieben. |
 | `30_fliegen.py` | Ein Allround-Flugskript mit zwei Flugmodi: **SCHWEBEN** (der Stick gibt das Tempo vor) und **SPORTLICH** (der Stick gibt die Neigung vor). Es hat vier Stick-Einstellungen, Flugfiguren auf dem Steuerkreuz (Kreis, Acht, Spirale, Auf-und-Ab), Trimmung und eine optionale Aufzeichnung. |
+| `flow_ranger_recorder.py` | Fliegen, den Flug aufzeichnen und danach nachfliegen. Die Schutzfunktionen der anderen Skripte kommen ursprünglich von hier. |
+| `flow_ranger_heimflug.py` | Hinfliegen, landen und danach allein zurück zum Startpunkt fliegen. Gespeicherte Strecken lassen sich wieder abfliegen. |
+| `flug_auswerten.py` | Rechnet aufgezeichnete Heimflüge durch und erklärt in Klartext, wie der Flug lief und woran es lag, wenn sie das Ziel verfehlt hat. Es fliegt selbst nicht und läuft auch ohne Drohne. |
 | `strecken.py` | Verwaltet aufgezeichnete Flugstrecken und vergibt Namen dafür (zum Beispiel „kueche“). Es fliegt selbst nicht, sondern liest und schreibt nur Dateien. |
 | `xbox_fly3.py` | Ein einfaches Grundgerüst mit direktem Schub und **ohne Höhenhaltung**. Es ist nur für Leute gedacht, die wissen, was sie tun. |
 
