@@ -1,0 +1,44 @@
+name: Idee vorschlagen
+description: Ein Vorschlag, wie sich etwas verbessern liesse
+title: "[Idee] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideen sind willkommen – auch halb durchdachte. Lieber aufschreiben
+        als vergessen.
+
+  - type: textarea
+    id: idee
+    attributes:
+      label: Worum geht es?
+      description: Was soll die Drohne oder das Skript koennen, was es jetzt nicht kann?
+    validations:
+      required: true
+
+  - type: textarea
+    id: warum
+    attributes:
+      label: Warum waere das nuetzlich?
+      description: >
+        Was nervt heute, oder was wuerde leichter? Eine konkrete Situation
+        hilft mehr als eine allgemeine Beschreibung.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idee_umsetzung
+    attributes:
+      label: Hast du schon eine Vorstellung, wie? (optional)
+      description: >
+        Nur falls du eine hast. Ohne Umsetzungsidee ist der Vorschlag
+        genauso willkommen.
+
+  - type: checkboxes
+    id: betrifft_schutz
+    attributes:
+      label: Kurz nachgehakt
+      options:
+        - label: Die Idee betrifft eine Schutzfunktion (Wand, Decke, Akku, Not-Aus)
+          required: false
