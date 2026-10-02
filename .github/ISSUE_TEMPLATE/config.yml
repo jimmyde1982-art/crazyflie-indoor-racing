@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Anleitung und Schutzfunktionen nachlesen
+    url: https://github.com/jimmyde1982-art/crazyflie-indoor-racing#readme
+    about: Im README stehen Installation, Startbefehle und was die Schutzfunktionen tun.
+  - name: Mitmachen
+    url: https://github.com/jimmyde1982-art/crazyflie-indoor-racing/blob/main/CONTRIBUTING.md
+    about: Wie du Code aenderst, pruefst und einen Pull Request stellst.

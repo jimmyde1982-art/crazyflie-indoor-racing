@@ -1,4 +1,6 @@
 # Nur zum Entwickeln und Testen, nicht zum Fliegen noetig
-pytest
-ruff
-mypy
+# Versionen sind festgenagelt, damit ein neues ruff/mypy nicht
+# ploetzlich die Pruefung rot faerbt, obwohl der Code gleich blieb.
+pytest~=9.1
+ruff~=0.16.0
+mypy~=2.4

@@ -1,0 +1,91 @@
+name: Fehler melden
+description: Etwas funktioniert nicht so, wie es soll
+title: "[Fehler] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fuers Melden! Je genauer die Angaben, desto eher laesst sich
+        der Fehler nachvollziehen. Bitte nichts weglassen, was du weisst –
+        auch ein unvollstaendiger Bericht ist besser als keiner.
+
+  - type: dropdown
+    id: skript
+    attributes:
+      label: Welches Skript?
+      options:
+        - race_indoor.py
+        - 30_fliegen.py
+        - xbox_fly3.py
+        - strecken.py
+        - flow_ranger_recorder.py
+        - flow_ranger_heimflug.py
+        - flug_auswerten.py
+        - weiss ich nicht / mehrere
+    validations:
+      required: true
+
+  - type: input
+    id: aufruf
+    attributes:
+      label: Wie hast du es gestartet?
+      description: Die komplette Zeile, die du eingetippt hast.
+      placeholder: python 30_fliegen.py sport rec h30
+    validations:
+      required: true
+
+  - type: textarea
+    id: was_passiert
+    attributes:
+      label: Was ist passiert?
+      description: >
+        Beschreib den Ablauf. Wenn eine Fehlermeldung kam, kopier sie
+        komplett hier rein.
+    validations:
+      required: true
+
+  - type: textarea
+    id: erwartet
+    attributes:
+      label: Was haettest du erwartet?
+    validations:
+      required: true
+
+  - type: textarea
+    id: drohne
+    attributes:
+      label: Drohne und Decks
+      description: >
+        Firmware-Version der Crazyflie und welche Decks aufgesteckt sind
+        (Flow Deck v2, Multi-Ranger, ...). Wenn der Fehler ohne Drohne
+        auftritt, schreib einfach "ohne Drohne".
+      placeholder: |
+        Firmware: 2024.10
+        Decks: Flow Deck v2 + Multi-Ranger
+    validations:
+      required: true
+
+  - type: input
+    id: umgebung
+    attributes:
+      label: Betriebssystem und Python-Version
+      placeholder: Windows 11, Python 3.12.4
+    validations:
+      required: true
+
+  - type: textarea
+    id: aufzeichnung
+    attributes:
+      label: Flugaufzeichnung (optional)
+      description: >
+        Falls du mit `rec` geflogen bist: zieh die .txt- oder .csv-Datei
+        einfach in dieses Feld.
+
+  - type: checkboxes
+    id: sicherheit
+    attributes:
+      label: Kurz nachgehakt
+      options:
+        - label: Der Fehler betrifft eine Schutzfunktion (Wand, Decke, Akku, Not-Aus)
+          required: false
