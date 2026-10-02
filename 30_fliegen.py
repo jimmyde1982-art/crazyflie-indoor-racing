@@ -78,9 +78,8 @@ import sys
 import time
 from datetime import datetime
 
-import pygame
-
 import cflib.crtp
+import pygame
 from cflib.crazyflie import Crazyflie
 from cflib.crazyflie.log import LogConfig
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
@@ -162,7 +161,7 @@ DECKE_FREI_BIS = 1.20
 # Soll fiel in einem Schritt von 2.03 m auf 0.45 m.
 DECKE_SINK_MAX = 0.35        # Meter pro Sekunde
 
-decke_puffer = []
+decke_puffer: list[float] = []
 decke_zuletzt = [0.0]
 
 # Notbremse, falls der Sensor oben nichts sieht (Dachschraege, offene
@@ -300,10 +299,10 @@ FIGUR_PLATZ = {'kreis': 1.10, 'acht': 1.80,
                'spirale': 1.10, 'aufab': 0.40}
 
 d = {'vbat': 0.0, 'zrange': None, 'x': 0.0, 'y': 0.0, 'z': 0.0, 'yaw': 0.0}
-verlauf = []
+verlauf: list[float] = []
 glatt = {'vor': 0.0, 'seit': 0.0, 'dreh': 0.0}
 trimm = {'vor': 0.0, 'seit': 0.0}
-nullpunkt = {}
+nullpunkt: dict[int, float] = {}
 
 # Funkabriss. Wird vom Verbindungs-Callback gesetzt und in warten()
 # geprueft - dann bricht auch eine laufende Startsequenz sofort ab.
@@ -946,7 +945,7 @@ def main():
             # hoeher als die Notbremse - sonst startet sie in die Decke.
             gewuenscht = int(a[1:]) / 100.0
             START_HOEHE = max(MIN_HOEHE, min(MAX_HOEHE, gewuenscht))
-            if START_HOEHE != gewuenscht:
+            if gewuenscht != START_HOEHE:
                 print('Starthoehe %.2f m ist nicht erlaubt, nehme %.2f m'
                       % (gewuenscht, START_HOEHE))
         elif a in ('sport', 'sportlich'):
@@ -957,7 +956,7 @@ def main():
             # d10 = 10 cm Abstand zur Decke
             gewuenscht = int(a[1:]) / 100.0
             DECKEN_ABSTAND = max(0.05, min(1.00, gewuenscht))
-            if DECKEN_ABSTAND != gewuenscht:
+            if gewuenscht != DECKEN_ABSTAND:
                 print('Deckenabstand %.2f m nicht erlaubt, nehme %.2f m'
                       % (gewuenscht, DECKEN_ABSTAND))
         elif a.isdigit() and 1 <= int(a) <= len(STUFEN):
@@ -1288,11 +1287,11 @@ def main():
             arm(cf, False)
             print('\nAbbruch.')
 
-        for l in [log, pose_log]:
+        for logger in [log, pose_log]:
             try:
-                if l:
-                    l.stop()
-                    l.delete()
+                if logger:
+                    logger.stop()
+                    logger.delete()
             except Exception:
                 pass
 
