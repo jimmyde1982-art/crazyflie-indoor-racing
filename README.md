@@ -1,8 +1,15 @@
 # Crazyflie Indoor Racing
 
+[![Tests](https://github.com/jimmyde1982-art/crazyflie-indoor-racing/actions/workflows/tests.yml/badge.svg)](https://github.com/jimmyde1982-art/crazyflie-indoor-racing/actions/workflows/tests.yml)
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
+[![Lizenz: MIT](https://img.shields.io/badge/Lizenz-MIT-green)](LICENSE)
+![Crazyflie 2.1](https://img.shields.io/badge/Crazyflie-2.1-orange)
+
 Python-Skripte, mit denen man eine **Bitcraze Crazyflie 2.1** per **Xbox-Controller** in der Wohnung fliegt: schnell und wendig, aber mit eingebautem Schutz vor Wänden, Decke und Möbeln.
 
 Das Projekt ist ein Hobby. Die Skripte sind echt geflogen, aber sie sind kein fertiges Produkt. Verbesserungen und Ideen sind willkommen (siehe unten).
+
+**Inhalt:** [Hardware](#hardware) · [Installation](#installation) · [Die Skripte](#die-skripte) · [Starten](#starten) · [Schutzfunktionen](#schutzfunktionen-race_indoorpy-und-30_fliegenpy) · [Tests](#tests) · [Mitmachen](#mitmachen) · [Sicherheit](#sicherheit) · [Lizenz](#lizenz)
 
 ## Hardware
 
@@ -66,10 +73,14 @@ Alle Grenzwerte stehen oben in den Dateien unter KONFIGURATION und sind kommenti
 
 ## Tests
 
+Die Tests brauchen keine Drohne, sie rechnen nur die Logik nach (Bremsen, Heimweg, Strecken, Auswertung …).
+
 ```bash
-pip install pytest
+pip install -r requirements-dev.txt
 pytest
 ```
+
+Bei jedem Push und Pull Request laufen sie automatisch auf GitHub unter Linux und Windows (siehe Badge oben).
 
 ## Mitmachen
 
@@ -77,7 +88,7 @@ pytest
 2. Deine Änderung machen und testen, am besten echt geflogen.
 3. Einen **Pull Request** stellen und kurz beschreiben, was du geändert hast und warum.
 
-Fehler oder Ideen kannst du auch einfach als **Issue** melden.
+Fehler oder Ideen kannst du auch einfach als **[Issue](../../issues/new/choose)** melden. Mehr Details stehen in der [CONTRIBUTING.md](CONTRIBUTING.md), was sich geändert hat in der [CHANGELOG.md](CHANGELOG.md).
 
 ## Sicherheit
 

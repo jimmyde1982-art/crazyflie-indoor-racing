@@ -1,0 +1,36 @@
+ANLEITUNG - Neue Dateien ins Repo crazyflie-indoor-racing bringen
+==================================================================
+
+Inhalt des ZIP (gleiche Ordnerstruktur wie im Repo):
+  README.md                         (ersetzt die alte: Badges, Inhaltsverzeichnis, Links)
+  CONTRIBUTING.md                   (Anleitung zum Mitmachen)
+  CHANGELOG.md                      (Liste der Aenderungen)
+  requirements-dev.txt              (pytest, ruff, mypy)
+  .github/workflows/tests.yml       (automatische Tests bei jedem Push/Pull Request)
+  .github/pull_request_template.md  (Vorlage fuer Pull Requests)
+  .github/ISSUE_TEMPLATE/...        (Vorlagen "Fehler melden" und "Idee vorschlagen")
+
+Weg 1 - Im Browser (am einfachsten)
+  1. ZIP entpacken.
+  2. Repo oeffnen -> "Add file" -> "Upload files".
+  3. ALLE entpackten Dateien und den Ordner ".github" ins Fenster ziehen
+     (Ordner per Drag & Drop, dann bleibt die Struktur erhalten).
+     Hinweis: Windows blendet ".github" evtl. aus -> im Explorer
+     "Ansicht -> Ausgeblendete Elemente" einschalten.
+  4. Unten "Create a new branch ... and start a pull request" waehlen,
+     Name z.B. mitmach-dateien -> "Propose changes" -> "Create pull request".
+  5. Warten, bis der Test-Haken gruen ist -> "Merge pull request".
+
+Weg 2 - Mit git (PowerShell, im Repo-Ordner)
+  git checkout -b mitmach-dateien
+  (Dateien aus dem ZIP hineinkopieren, README.md ueberschreiben)
+  git add .
+  git commit -m "CI, Mitmach-Dateien und README-Badges"
+  git push -u origin mitmach-dateien
+  -> auf GitHub den angezeigten "Compare & pull request"-Knopf klicken.
+
+Gut zu wissen
+  - Die Tests (203 Stueck) laufen ohne Drohne, unter Linux und Windows.
+  - ruff und mypy laufen nur als Hinweis mit (8 kleine Meldungen in
+    30_fliegen.py / race_indoor.py, z.B. fehlende Typangabe). Sie machen
+    den Haken NICHT rot. Die Flugskripte selbst wurden nicht veraendert.

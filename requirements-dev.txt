@@ -1,0 +1,4 @@
+# Nur zum Entwickeln und Testen, nicht zum Fliegen noetig
+pytest
+ruff
+mypy
